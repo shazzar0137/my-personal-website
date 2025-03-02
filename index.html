@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        Welcome to My Personal Website
+    </header>
+    
+    <div class="container">
+        <section class="section" id="about">
+            <h2>About Me</h2>
+            <p>Hi, I'm <span id="name">Daniel Kipngetich</span>. A passionate developer and tech enthusiast.<br/>. 
+            I am currently studying at Moringa school</p>
+            <h3>Interests</h3>
+            <p>I specialize in building dynamic and user-friendly websites,<br/> 
+            using technologies like HTML, CSS, JavaScript, and React.<br/>
+             I enjoy working on projects that improve user experiences and bring ideas to life</p>
+              <h3> Mission</h3>
+              <p>My goal is to continuously grow as a developer, expand<br/>
+               my skill set, and contribute to projects that make a real-world impact.</p>
+               <h3>Hobbies</h3>
+               <p>Outside of coding, I'm an avid gamer, always exploring new technology, and a lifelong learner<br/>
+                who enjoys solving problems.</p>
+        </section>
+
+        <section class="section" id="portfolio">
+            <h2>Portfolio</h2>
+            <p>Feel free to explore my projects and get in touch if you would like to collaborate or chat about tech!</p>
+            <div class="portfolio-container">
+                <div class="project" onmouseover="highlightProject(this)" onmouseout="removeHighlight(this)">
+                    <h3>Project 1 - E-commerce Website</h3>
+                    <p>A fully functional e-commerce platform with payment integration.</p>
+                    <button onclick="showAlert('E-commerce Website')">View Project</button>
+                </div>
+                <div class="project" onmouseover="highlightProject(this)" onmouseout="removeHighlight(this)">
+                    <h3>Project 2 - Portfolio Website</h3>
+                    <p>A sleek and responsive portfolio website to showcase work.</p>
+                    <button onclick="showAlert('Portfolio Website')">View Project</button>
+                </div>
+                <div class="project" onmouseover="highlightProject(this)" onmouseout="removeHighlight(this)">
+                    <h3>Project 3 - Task Management App</h3>
+                    <p>A productivity tool to manage tasks efficiently with reminders.</p>
+                    <button onclick="showAlert('Task Management App')">View Project</button>
+                </div>
+                <div class="project" onmouseover="highlightProject(this)" onmouseout="removeHighlight(this)">
+                    <h3>Project 4 - AI Chatbot</h3>
+                    <p>An intelligent chatbot powered by natural language processing.</p>
+                    <button onclick="showAlert('AI Chatbot')">View Project</button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" id="contact">
+            <h2>Contact</h2>
+            <p>Email: danielkipngetich10@gmail.com</p>
+            <p>LinkedIn: <a href="www.linkedin.com/in/daniel-kipngetich-57373021a">LinkedIn</a></p>
+            <p>GitHub: <a href="https://github.com/shazzar0137">GitHub</a></p>
+        </section>
+    </div>
+    
+    <footer>
+        &copy; 2025 Your Name. All rights reserved.
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
