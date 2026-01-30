@@ -4,168 +4,332 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Kipngetich | Portfolio</title>
+    <title>Daniel Kipngetich | Software Engineer & Data Analyst</title>
+    <meta name="description"
+        content="Daniel Kipngetich - Software Engineer, Data Analyst & Freelancer. Building dynamic digital experiences with modern web technologies.">
+    <meta name="keywords"
+        content="software engineer, data analyst, web developer, freelancer, Kenya, React, Python, portfolio">
+    <meta name="author" content="Daniel Kipngetich">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Daniel Kipngetich | Software Engineer & Data Analyst">
+    <meta property="og:description" content="Building dynamic digital experiences with modern web technologies.">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" type="image/png" href="./logo.png">
     <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
+    <!-- Cursor Spotlight -->
+    <div class="cursor-spotlight" id="spotlight"></div>
+
     <header>
         <nav>
-            <div class="logo">DK</div>
-            <ul>
+            <a href="#" class="logo">
+                <img src="./logo.png" alt="DK Logo">
+            </a>
+            <ul id="nav-menu">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#portfolio">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="mobile-toggle" id="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
-        <h1>Hi, I'm <span style="color: var(--primary)">Daniel</span></h1>
-        <p>A passionate developer specializing in building dynamic and user-friendly digital experiences.</p>
-        <div class="cta-buttons">
-            <a href="#portfolio" class="btn btn-primary">View My Work</a>
-            <a href="#contact" class="btn" style="border: 1px solid var(--primary); color: var(--primary);">Contact
-                Me</a>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                <span>Open for opportunities</span>
+            </div>
+            <h1>Hi, I'm <span class="highlight">Daniel</span></h1>
+            <p class="hero-subtitle">Transforming data into insights and ideas into digital experiences.</p>
+            <div class="hero-roles">
+                <span class="role-tag">💻 Software Engineer</span>
+                <span class="role-tag">📊 Data Analyst</span>
+                <span class="role-tag">🚀 Freelancer</span>
+            </div>
+            <div class="cta-buttons">
+                <a href="#portfolio" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-secondary">Let's Talk</a>
+            </div>
         </div>
     </section>
 
     <div class="container">
+        <!-- About Section -->
         <section class="section" id="about">
-            <h2 class="section-title">About Me</h2>
+            <div class="section-header">
+                <p class="section-label">About Me</p>
+                <h2 class="section-title">Building the Future, One Line at a Time</h2>
+            </div>
             <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <p>I am a developer currently studying at Moringa School. I specialize in building dynamic and
-                    user-friendly websites using technologies like <span style="color: var(--primary)">HTML, CSS,
-                        JavaScript, and React</span>.</p>
-                <p style="margin-top: 1rem;">My goal is to contribute to projects that make a real-world impact while
-                    continuously expanding my skill set. Outside of coding, I'm an avid gamer and technology enthusiast.
+                <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1.5rem;">
+                    I'm a <strong style="color: var(--primary);">Software Engineer</strong> and <strong
+                        style="color: var(--primary);">Data Analyst</strong>
+                    passionate about building dynamic, user-friendly digital experiences. I work with modern
+                    technologies like
+                    <strong style="color: var(--text-main);">React, Python, Flask, and data visualization tools</strong>
+                    to create impactful solutions.
                 </p>
+                <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem;">
+                    Currently working as a <strong style="color: var(--accent);">Data Analyst Intern</strong>, I'm
+                    always open to exciting
+                    freelance projects and collaborations. Whether you need a stunning website, data insights, or a
+                    full-stack application —
+                    I'm here to help bring your vision to life.
+                </p>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Technologies</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">∞</div>
+                        <div class="stat-label">Curiosity</div>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- Skills Section -->
         <section class="section" id="skills">
-            <h2 class="section-title">My Skills</h2>
+            <div class="section-header">
+                <p class="section-label">Skills</p>
+                <h2 class="section-title">Technologies I Work With</h2>
+            </div>
             <div class="skills-grid">
-                <div class="skill-tag">HTML5</div>
-                <div class="skill-tag">CSS3</div>
-                <div class="skill-tag">JavaScript</div>
-                <div class="skill-tag">React.js</div>
-                <div class="skill-tag">Python</div>
-                <div class="skill-tag">Flask</div>
-                <div class="skill-tag">Data Analysis</div>
-                <div class="skill-tag">Git & GitHub</div>
+                <div class="skill-card">
+                    <div class="skill-icon">🌐</div>
+                    <div class="skill-name">HTML5</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <div class="skill-name">CSS3</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⚡</div>
+                    <div class="skill-name">JavaScript</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⚛️</div>
+                    <div class="skill-name">React.js</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🐍</div>
+                    <div class="skill-name">Python</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🌶️</div>
+                    <div class="skill-name">Flask</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📊</div>
+                    <div class="skill-name">Data Analysis</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🔀</div>
+                    <div class="skill-name">Git & GitHub</div>
+                </div>
             </div>
         </section>
 
+        <!-- Portfolio Section -->
         <section class="section" id="portfolio">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="portfolio-container">
-                <!-- Real GitHub Projects -->
-                <div class="project">
-                    <div class="project-content">
-                        <h3>🏋️ Fitflex Tracker App</h3>
-                        <p>A collaborative fitness tracking application built with modern web technologies. Deployed on
-                            Render.</p>
-                        <div class="project-links">
-                            <a href="https://fitflex-tracker-app.onrender.com" target="_blank" class="btn btn-primary"
-                                style="padding: 0.5rem 1rem; font-size: 0.8rem;">Live Demo</a>
-                            <a href="https://github.com/shazzar0137/Fitflex-tracker-app" target="_blank"
-                                style="color: var(--text-main); text-decoration: none; font-size: 0.8rem; align-self: center;">GitHub</a>
-                        </div>
+            <div class="section-header">
+                <p class="section-label">Portfolio</p>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">A collection of work that showcases my skills in development and data
+                    analysis.</p>
+            </div>
+
+            <div class="bento-grid">
+                <!-- Featured: BlueCart Marketplace -->
+                <div class="bento-item featured">
+                    <div class="project-emoji">🛒</div>
+                    <h3 class="project-title">BlueCart Marketplace</h3>
+                    <p class="project-desc">A full-stack e-commerce platform for searching, comparing, and analyzing
+                        product prices across Amazon, eBay, and Alibaba. Built with React + Redux and FastAPI backend.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Redux</span>
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">PostgreSQL</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://bluecart-marketplace-frontend.onrender.com" target="_blank"
+                            class="project-link primary">🚀 Live Demo</a>
+                        <a href="https://github.com/Waith93/bluecart-marketplace" target="_blank"
+                            class="project-link">GitHub</a>
                     </div>
                 </div>
-                <div class="project">
-                    <div class="project-content">
-                        <h3>🦸 Flask Superheroes API</h3>
-                        <p>A RESTful API built with Python Flask for managing superhero data with full CRUD operations.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://github.com/shazzar0137/flask-superheroes-api" target="_blank"
-                                class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">View Code</a>
-                        </div>
+
+                <!-- Fitflex Tracker -->
+                <div class="bento-item">
+                    <div class="project-emoji">🏋️</div>
+                    <h3 class="project-title">Fitflex Tracker</h3>
+                    <p class="project-desc">A collaborative fitness tracking application for monitoring workouts and
+                        progress.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Node.js</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://fitflex-tracker-app.onrender.com" target="_blank"
+                            class="project-link primary">Live Demo</a>
+                        <a href="https://github.com/shazzar0137/Fitflex-tracker-app" target="_blank"
+                            class="project-link">GitHub</a>
                     </div>
                 </div>
-                <div class="project">
-                    <div class="project-content">
-                        <h3>🤖 AI ChatBot</h3>
-                        <p>A collaborative chatbot application built with modern web technologies. Deployed on Vercel.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://chat-bot-ten-livid.vercel.app" target="_blank" class="btn btn-primary"
-                                style="padding: 0.5rem 1rem; font-size: 0.8rem;">Live Demo</a>
-                            <a href="https://github.com/shazzar0137/ChatBot" target="_blank"
-                                style="color: var(--text-main); text-decoration: none; font-size: 0.8rem; align-self: center;">GitHub</a>
-                        </div>
+
+                <!-- AI ChatBot -->
+                <div class="bento-item">
+                    <div class="project-emoji">🤖</div>
+                    <h3 class="project-title">AI ChatBot</h3>
+                    <p class="project-desc">An intelligent chatbot application built with modern web technologies.</p>
+                    <div class="project-tags">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">AI</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://chat-bot-ten-livid.vercel.app" target="_blank"
+                            class="project-link primary">Live Demo</a>
+                        <a href="https://github.com/shazzar0137/ChatBot" target="_blank" class="project-link">GitHub</a>
                     </div>
                 </div>
-                <div class="project">
-                    <div class="project-content">
-                        <h3>🛒 BlueCart Marketplace</h3>
-                        <p>A collaborative e-commerce marketplace platform built with Python. Full-featured buying and
-                            selling functionality.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/Waith93/bluecart-marketplace" target="_blank"
-                                class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">View Code</a>
-                        </div>
+
+                <!-- Flask Superheroes API -->
+                <div class="bento-item">
+                    <div class="project-emoji">🦸</div>
+                    <h3 class="project-title">Flask Superheroes API</h3>
+                    <p class="project-desc">A RESTful API built with Python Flask for managing superhero data with full
+                        CRUD operations.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Flask</span>
+                        <span class="tag">REST API</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/shazzar0137/flask-superheroes-api" target="_blank"
+                            class="project-link primary">View Code</a>
                     </div>
                 </div>
 
                 <!-- Data Analysis Projects -->
-                <div class="project">
-                    <div class="project-content">
-                        <h3>💧 Water Sector Analysis</h3>
-                        <p>Data analysis of water access patterns, quality metrics, and infrastructure investment across
-                            African countries (2020-2024).</p>
-                        <div class="project-links">
-                            <a href="./data-analysis-projects/water-sector-analysis/dashboard/index.html"
-                                class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">View
-                                Dashboard</a>
-                        </div>
+                <div class="bento-item tall">
+                    <div class="project-emoji">📈</div>
+                    <h3 class="project-title">Data Analysis Dashboards</h3>
+                    <p class="project-desc">Interactive data visualization dashboards analyzing water access, economic
+                        indicators, and governance metrics across African countries.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Chart.js</span>
+                        <span class="tag">Data Viz</span>
                     </div>
-                </div>
-                <div class="project">
-                    <div class="project-content">
-                        <h3>📈 Economic Indicators</h3>
-                        <p>Analysis of GDP growth, inflation, unemployment, and sectoral composition trends across East
-                            and West African economies.</p>
-                        <div class="project-links">
-                            <a href="./data-analysis-projects/economic-indicators-analysis/dashboard/index.html"
-                                class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">View
-                                Dashboard</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project">
-                    <div class="project-content">
-                        <h3>🏛️ Governance Metrics</h3>
-                        <p>Comparative analysis of corruption perception, political stability, and regulatory quality
-                            across African nations.</p>
-                        <div class="project-links">
-                            <a href="./data-analysis-projects/governance-metrics-analysis/dashboard/index.html"
-                                class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">View
-                                Dashboard</a>
-                        </div>
+                    <div class="project-links">
+                        <a href="./data-analysis-projects/water-sector-analysis/dashboard/index.html"
+                            class="project-link">💧 Water</a>
+                        <a href="./data-analysis-projects/economic-indicators-analysis/dashboard/index.html"
+                            class="project-link">💰 Economic</a>
+                        <a href="./data-analysis-projects/governance-metrics-analysis/dashboard/index.html"
+                            class="project-link">🏛️ Governance</a>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Contact Section -->
         <section class="section" id="contact">
-            <h2 class="section-title">Let's Connect</h2>
-            <div class="contact-info">
-                <p>Have a project in mind or just want to say hi? I'd love to hear from you!</p>
-                <div class="contact-links">
-                    <a href="mailto:danielkipngetich10@gmail.com">Email</a>
-                    <a href="https://www.linkedin.com/in/daniel-kipngetich-57373021a" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/shazzar0137" target="_blank">GitHub</a>
+            <div class="section-header">
+                <p class="section-label">Contact</p>
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-subtitle">Have a project in mind? I'd love to hear from you.</p>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>Whether you have a question, project idea, or just want to connect — feel free to reach out
+                        through any of these channels.</p>
+
+                    <div class="contact-methods">
+                        <a href="mailto:danielkipngetich10@gmail.com" class="contact-method">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <span>danielkipngetich10@gmail.com</span>
+                            </div>
+                        </a>
+                        <a href="tel:+254762209702" class="contact-method">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-details">
+                                <h4>Phone</h4>
+                                <span>+254 762 209 702</span>
+                            </div>
+                        </a>
+                        <a href="https://wa.me/254762209702?text=Hi%20Daniel!%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project."
+                            target="_blank" class="contact-method">
+                            <div class="contact-icon">💬</div>
+                            <div class="contact-details">
+                                <h4>WhatsApp</h4>
+                                <span>Send a message</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://github.com/shazzar0137" target="_blank" class="social-link" title="GitHub">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/daniel-kipngetich-57373021a" target="_blank"
+                            class="social-link" title="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
+
+                <form class="contact-form" action="https://formspree.io/f/mwplqkgn" method="POST">
+                    <h3>Send a Message</h3>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required
+                            placeholder="Tell me about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Send Message</button>
+                </form>
             </div>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2026 Daniel Kipngetich. Built with passion.</p>
+        <p>© 2026 Daniel Kipngetich. Built with <span class="heart">♥</span> and lots of ☕</p>
     </footer>
 
     <script src="index.js"></script>
