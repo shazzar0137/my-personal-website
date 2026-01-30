@@ -1,0 +1,36 @@
+region,country,year,urban_access_pct,rural_access_pct,total_access_pct,water_quality_index,infrastructure_investment_usd,population_millions
+East Africa,Kenya,2020,87.2,58.3,68.4,72,245000000,53.8
+East Africa,Kenya,2021,88.1,60.1,70.2,74,268000000,55.0
+East Africa,Kenya,2022,89.0,62.5,72.1,75,295000000,56.2
+East Africa,Kenya,2023,90.2,64.8,74.0,77,320000000,57.5
+East Africa,Kenya,2024,91.5,67.2,76.1,79,348000000,58.8
+East Africa,Tanzania,2020,84.5,48.2,58.3,68,180000000,61.5
+East Africa,Tanzania,2021,85.3,50.1,60.2,69,198000000,63.0
+East Africa,Tanzania,2022,86.2,52.4,62.1,71,218000000,64.5
+East Africa,Tanzania,2023,87.1,54.8,64.2,72,240000000,66.0
+East Africa,Tanzania,2024,88.0,57.2,66.3,74,265000000,67.5
+East Africa,Uganda,2020,79.8,52.1,58.6,65,120000000,45.7
+East Africa,Uganda,2021,81.2,54.3,60.5,67,135000000,47.0
+East Africa,Uganda,2022,82.5,56.7,62.6,68,152000000,48.3
+East Africa,Uganda,2023,83.9,59.1,64.8,70,170000000,49.6
+East Africa,Uganda,2024,85.3,61.5,67.1,72,190000000,51.0
+East Africa,Rwanda,2020,92.1,68.4,74.2,78,85000000,13.0
+East Africa,Rwanda,2021,93.2,70.8,76.5,80,95000000,13.3
+East Africa,Rwanda,2022,94.1,73.2,78.8,82,106000000,13.6
+East Africa,Rwanda,2023,95.0,75.8,81.2,84,118000000,13.9
+East Africa,Rwanda,2024,95.8,78.4,83.6,86,132000000,14.2
+West Africa,Nigeria,2020,81.2,42.5,54.3,58,520000000,211.0
+West Africa,Nigeria,2021,82.1,44.2,55.8,59,575000000,216.0
+West Africa,Nigeria,2022,83.0,46.1,57.4,61,635000000,221.0
+West Africa,Nigeria,2023,84.0,48.0,59.1,62,700000000,226.0
+West Africa,Nigeria,2024,85.0,50.1,60.9,64,770000000,231.0
+West Africa,Ghana,2020,88.5,62.3,72.1,71,145000000,31.0
+West Africa,Ghana,2021,89.2,64.1,73.8,72,160000000,32.0
+West Africa,Ghana,2022,90.0,66.0,75.5,74,176000000,33.0
+West Africa,Ghana,2023,90.8,68.0,77.3,75,194000000,34.0
+West Africa,Ghana,2024,91.5,70.1,79.1,77,213000000,35.0
+Southern Africa,South Africa,2020,94.2,78.5,88.2,82,680000000,60.0
+Southern Africa,South Africa,2021,94.5,79.3,89.0,83,720000000,60.5
+Southern Africa,South Africa,2022,94.8,80.2,89.8,84,765000000,61.0
+Southern Africa,South Africa,2023,95.2,81.1,90.6,85,812000000,61.5
+Southern Africa,South Africa,2024,95.5,82.0,91.4,86,862000000,62.0

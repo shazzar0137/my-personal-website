@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Governance Metrics Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary: #8b5cf6;
+            --secondary: #ec4899;
+            --bg-dark: #0f172a;
+            --bg-card: rgba(30, 41, 59, 0.9);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            background-image:
+                radial-gradient(at 100% 100%, hsla(270, 98%, 60%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, hsla(330, 98%, 60%, 0.1) 0px, transparent 50%);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: var(--text-muted);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 1.25rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .stat-value.good {
+            color: var(--success);
+        }
+
+        .stat-value.medium {
+            color: var(--warning);
+        }
+
+        .stat-value.poor {
+            color: var(--danger);
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .chart-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .chart-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 280px;
+        }
+
+        .legend-custom {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>🏛️ Governance Metrics Dashboard</h1>
+        <p>Analyzing governance quality across African countries (2020-2024)</p>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value good">55</div>
+            <div class="stat-label">Best CPI (Rwanda)</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value medium">38</div>
+            <div class="stat-label">Avg. CPI Score</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value poor">26</div>
+            <div class="stat-label">Lowest CPI (Nigeria)</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value good">29</div>
+            <div class="stat-label">Best Business Rank</div>
+        </div>
+    </div>
+
+    <div class="charts-grid">
+        <div class="chart-card">
+            <h3>🔍 Corruption Perception Index (2024)</h3>
+            <div class="chart-container">
+                <canvas id="cpiChart"></canvas>
+            </div>
+            <div class="legend-custom">
+                <div class="legend-item"><span class="legend-dot" style="background:#10b981"></span>Good (50+)</div>
+                <div class="legend-item"><span class="legend-dot" style="background:#f59e0b"></span>Medium (30-49)</div>
+                <div class="legend-item"><span class="legend-dot" style="background:#ef4444"></span>Poor (<30)< /div>
+                </div>
+            </div>
+            <div class="chart-card">
+                <h3>📊 Political Stability Trends</h3>
+                <div class="chart-container">
+                    <canvas id="stabilityChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-card">
+                <h3>⚖️ Rule of Law Index (2024)</h3>
+                <div class="chart-container">
+                    <canvas id="lawChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-card">
+                <h3>🗳️ Voice & Accountability by Country</h3>
+                <div class="chart-container">
+                    <canvas id="voiceChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Data Analysis Project by Daniel Kipngetich | Built with Chart.js</p>
+        </footer>
+
+        <script>
+            const colors = {
+                good: '#10b981',
+                medium: '#f59e0b',
+                poor: '#ef4444',
+                primary: '#8b5cf6',
+                secondary: '#ec4899'
+            };
+
+            // CPI Chart
+            const cpiData = [
+                { country: 'Rwanda', value: 55, color: colors.good },
+                { country: 'South Africa', value: 43, color: colors.medium },
+                { country: 'Ghana', value: 42, color: colors.medium },
+                { country: 'Tanzania', value: 42, color: colors.medium },
+                { country: 'Ethiopia', value: 38, color: colors.medium },
+                { country: 'Kenya', value: 34, color: colors.medium },
+                { country: 'Uganda', value: 27, color: colors.poor },
+                { country: 'Nigeria', value: 26, color: colors.poor }
+            ];
+
+            new Chart(document.getElementById('cpiChart'), {
+                type: 'bar',
+                data: {
+                    labels: cpiData.map(d => d.country),
+                    datasets: [{
+                        label: 'CPI Score',
+                        data: cpiData.map(d => d.value),
+                        backgroundColor: cpiData.map(d => d.color),
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: {
+                            max: 100,
+                            grid: { color: 'rgba(255,255,255,0.1)' },
+                            ticks: { color: '#94a3b8' }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: '#94a3b8', maxRotation: 45 }
+                        }
+                    }
+                }
+            });
+
+            // Political Stability Chart
+            new Chart(document.getElementById('stabilityChart'), {
+                type: 'line',
+                data: {
+                    labels: ['2020', '2021', '2022', '2023', '2024'],
+                    datasets: [
+                        { label: 'Rwanda', data: [0.08, 0.12, 0.15, 0.18, 0.22], borderColor: colors.good, tension: 0.3 },
+                        { label: 'Ghana', data: [0.02, -0.05, -0.12, -0.18, -0.15], borderColor: colors.medium, tension: 0.3 },
+                        { label: 'Kenya', data: [-0.82, -0.75, -0.68, -0.62, -0.55], borderColor: '#3b82f6', tension: 0.3 },
+                        { label: 'Nigeria', data: [-1.75, -1.82, -1.78, -1.65, -1.52], borderColor: colors.poor, tension: 0.3 }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { labels: { color: '#94a3b8' } } },
+                    scales: {
+                        y: {
+                            grid: { color: 'rgba(255,255,255,0.1)' },
+                            ticks: { color: '#94a3b8' }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: '#94a3b8' }
+                        }
+                    }
+                }
+            });
+
+            // Rule of Law Chart
+            new Chart(document.getElementById('lawChart'), {
+                type: 'radar',
+                data: {
+                    labels: ['Rwanda', 'S. Africa', 'Ghana', 'Kenya', 'Tanzania', 'Uganda', 'Nigeria'],
+                    datasets: [{
+                        label: 'Rule of Law Index',
+                        data: [0.25, 0.12, -0.15, -0.20, -0.28, -0.32, -0.62],
+                        backgroundColor: 'rgba(139, 92, 246, 0.2)',
+                        borderColor: colors.primary,
+                        pointBackgroundColor: colors.primary
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { labels: { color: '#94a3b8' } } },
+                    scales: {
+                        r: {
+                            min: -1,
+                            max: 0.5,
+                            grid: { color: 'rgba(255,255,255,0.1)' },
+                            pointLabels: { color: '#94a3b8' },
+                            ticks: { display: false }
+                        }
+                    }
+                }
+            });
+
+            // Voice & Accountability Chart
+            new Chart(document.getElementById('voiceChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['S. Africa', 'Ghana', 'Kenya', 'Tanzania', 'Uganda', 'Rwanda', 'Nigeria', 'Ethiopia'],
+                    datasets: [{
+                        label: 'Voice & Accountability',
+                        data: [0.62, 0.42, -0.05, -0.45, -0.68, -0.78, -0.48, -1.05],
+                        backgroundColor: [
+                            colors.good, colors.good, colors.medium, colors.medium,
+                            colors.poor, colors.poor, colors.poor, colors.poor
+                        ],
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: {
+                            grid: { color: 'rgba(255,255,255,0.1)' },
+                            ticks: { color: '#94a3b8' }
+                        },
+                        y: {
+                            grid: { display: false },
+                            ticks: { color: '#94a3b8' }
+                        }
+                    }
+                }
+            });
+        </script>
+</body>
+
+</html>

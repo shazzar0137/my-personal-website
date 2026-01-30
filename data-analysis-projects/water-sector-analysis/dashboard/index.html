@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Sector Analysis Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary: #0ea5e9;
+            --secondary: #06b6d4;
+            --bg-dark: #0f172a;
+            --bg-card: rgba(30, 41, 59, 0.9);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            background-image:
+                radial-gradient(at 0% 0%, hsla(200, 98%, 40%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, hsla(180, 98%, 40%, 0.1) 0px, transparent 50%);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: var(--text-muted);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .chart-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .chart-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>💧 Water Sector Analysis</h1>
+        <p>Exploring water access patterns across African regions (2020-2024)</p>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value">73.2%</div>
+            <div class="stat-label">Avg. Total Access (2024)</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">91.0%</div>
+            <div class="stat-label">Avg. Urban Access</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">66.8%</div>
+            <div class="stat-label">Avg. Rural Access</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">$3.2B</div>
+            <div class="stat-label">Total Investment (2024)</div>
+        </div>
+    </div>
+
+    <div class="charts-grid">
+        <div class="chart-card">
+            <h3>📊 Water Access by Country (2024)</h3>
+            <div class="chart-container">
+                <canvas id="accessChart"></canvas>
+            </div>
+        </div>
+        <div class="chart-card">
+            <h3>📈 Access Improvement Trends</h3>
+            <div class="chart-container">
+                <canvas id="trendChart"></canvas>
+            </div>
+        </div>
+        <div class="chart-card">
+            <h3>🏙️ Urban vs Rural Access Gap</h3>
+            <div class="chart-container">
+                <canvas id="gapChart"></canvas>
+            </div>
+        </div>
+        <div class="chart-card">
+            <h3>💰 Investment by Region (2024)</h3>
+            <div class="chart-container">
+                <canvas id="investmentChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Data Analysis Project by Daniel Kipngetich | Built with Chart.js</p>
+    </footer>
+
+    <script>
+        const chartColors = {
+            primary: '#0ea5e9',
+            secondary: '#06b6d4',
+            accent: '#10b981',
+            warning: '#f59e0b',
+            danger: '#ef4444',
+            purple: '#8b5cf6'
+        };
+
+        // Access by Country Chart
+        new Chart(document.getElementById('accessChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Rwanda', 'South Africa', 'Ghana', 'Kenya', 'Uganda', 'Tanzania', 'Nigeria'],
+                datasets: [{
+                    label: 'Total Access %',
+                    data: [83.6, 91.4, 79.1, 76.1, 67.1, 66.3, 60.9],
+                    backgroundColor: [
+                        chartColors.accent, chartColors.primary, chartColors.secondary,
+                        chartColors.purple, chartColors.warning, '#64748b', chartColors.danger
+                    ],
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: 'rgba(255,255,255,0.1)' },
+                        ticks: { color: '#94a3b8' }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#94a3b8' }
+                    }
+                }
+            }
+        });
+
+        // Trend Chart
+        new Chart(document.getElementById('trendChart'), {
+            type: 'line',
+            data: {
+                labels: ['2020', '2021', '2022', '2023', '2024'],
+                datasets: [
+                    { label: 'Kenya', data: [68.4, 70.2, 72.1, 74.0, 76.1], borderColor: chartColors.primary, tension: 0.3 },
+                    { label: 'Rwanda', data: [74.2, 76.5, 78.8, 81.2, 83.6], borderColor: chartColors.accent, tension: 0.3 },
+                    { label: 'Nigeria', data: [54.3, 55.8, 57.4, 59.1, 60.9], borderColor: chartColors.danger, tension: 0.3 },
+                    { label: 'South Africa', data: [88.2, 89.0, 89.8, 90.6, 91.4], borderColor: chartColors.purple, tension: 0.3 }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { color: '#94a3b8' } } },
+                scales: {
+                    y: {
+                        grid: { color: 'rgba(255,255,255,0.1)' },
+                        ticks: { color: '#94a3b8' }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#94a3b8' }
+                    }
+                }
+            }
+        });
+
+        // Urban-Rural Gap Chart
+        new Chart(document.getElementById('gapChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Nigeria', 'Tanzania', 'Uganda', 'Ghana', 'Kenya', 'Rwanda', 'South Africa'],
+                datasets: [{
+                    label: 'Urban-Rural Gap %',
+                    data: [34.9, 30.8, 23.8, 21.4, 24.3, 17.4, 13.5],
+                    backgroundColor: chartColors.warning,
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: {
+                        grid: { color: 'rgba(255,255,255,0.1)' },
+                        ticks: { color: '#94a3b8' }
+                    },
+                    y: {
+                        grid: { display: false },
+                        ticks: { color: '#94a3b8' }
+                    }
+                }
+            }
+        });
+
+        // Investment Chart
+        new Chart(document.getElementById('investmentChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['South Africa', 'Nigeria', 'Kenya', 'Tanzania', 'Ghana', 'Uganda', 'Rwanda'],
+                datasets: [{
+                    data: [862, 770, 348, 265, 213, 190, 132],
+                    backgroundColor: [
+                        chartColors.primary, chartColors.danger, chartColors.accent,
+                        chartColors.secondary, chartColors.warning, chartColors.purple, '#64748b'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: { color: '#94a3b8', padding: 15 }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
