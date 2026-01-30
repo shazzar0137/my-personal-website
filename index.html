@@ -1,72 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
+    <title>Daniel Kipngetich | Portfolio</title>
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
     <header>
-        Welcome to My Personal Website
+        <nav>
+            <div class="logo">DK</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
-    
+
+    <section class="hero">
+        <h1>Hi, I'm <span style="color: var(--primary)">Daniel</span></h1>
+        <p>A passionate developer specializing in building dynamic and user-friendly digital experiences.</p>
+        <div class="cta-buttons">
+            <a href="#portfolio" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn" style="border: 1px solid var(--primary); color: var(--primary);">Contact
+                Me</a>
+        </div>
+    </section>
+
     <div class="container">
         <section class="section" id="about">
-            <h2>About Me</h2>
-            <p>Hi, I'm <span id="name">Daniel Kipngetich</span>. A passionate developer and tech enthusiast.<br/>. 
-            I am currently studying at Moringa school</p>
-            <h3>Interests</h3>
-            <p>I specialize in building dynamic and user-friendly websites,<br/> 
-            using technologies like HTML, CSS, JavaScript, and React.<br/>
-             I enjoy working on projects that improve user experiences and bring ideas to life</p>
-              <h3> Mission</h3>
-              <p>My goal is to continuously grow as a developer, expand<br/>
-               my skill set, and contribute to projects that make a real-world impact.</p>
-               <h3>Hobbies</h3>
-               <p>Outside of coding, I'm an avid gamer, always exploring new technology, and a lifelong learner<br/>
-                who enjoys solving problems.</p>
+            <h2 class="section-title">About Me</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p>I am a developer currently studying at Moringa School. I specialize in building dynamic and
+                    user-friendly websites using technologies like <span style="color: var(--primary)">HTML, CSS,
+                        JavaScript, and React</span>.</p>
+                <p style="margin-top: 1rem;">My goal is to contribute to projects that make a real-world impact while
+                    continuously expanding my skill set. Outside of coding, I'm an avid gamer and technology enthusiast.
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="skills">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">HTML5</div>
+                <div class="skill-tag">CSS3</div>
+                <div class="skill-tag">JavaScript</div>
+                <div class="skill-tag">React.js</div>
+                <div class="skill-tag">Node.js</div>
+                <div class="skill-tag">Git & GitHub</div>
+                <div class="skill-tag">UI/UX Design</div>
+                <div class="skill-tag">Problem Solving</div>
+            </div>
         </section>
 
         <section class="section" id="portfolio">
-            <h2>Portfolio</h2>
-            <p>Feel free to explore my projects and get in touch if you would like to collaborate or chat about tech!</p>
+            <h2 class="section-title">Featured Projects</h2>
             <div class="portfolio-container">
-                <div class="project" onmouseover="highlightProject(this)" onmouseout="removeHighlight(this)">
-                    <h3>Project 1 - E-commerce Website</h3>
-                    <p>A fully functional e-commerce platform with payment integration.</p>
-                    <button onclick="showAlert('E-commerce Website')">View Project</button>
+                <div class="project">
+                    <div class="project-content">
+                        <h3>E-commerce Website</h3>
+                        <p>A fully functional e-commerce platform with payment integration and dynamic cart management.
+                        </p>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Live
+                                Demo</a>
+                            <a href="#"
+                                style="color: var(--text-main); text-decoration: none; font-size: 0.8rem; align-self: center;">GitHub</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="project" onmouseover="highlightProject(this)" onmouseout="removeHighlight(this)">
-                    <h3>Project 2 - Portfolio Website</h3>
-                    <p>A sleek and responsive portfolio website to showcase work.</p>
-                    <button onclick="showAlert('Portfolio Website')">View Project</button>
+                <div class="project">
+                    <div class="project-content">
+                        <h3>Portfolio Website</h3>
+                        <p>A sleek, responsive portfolio designed to showcase professional work and technical skills.
+                        </p>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Live
+                                Demo</a>
+                            <a href="#"
+                                style="color: var(--text-main); text-decoration: none; font-size: 0.8rem; align-self: center;">GitHub</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="project" onmouseover="highlightProject(this)" onmouseout="removeHighlight(this)">
-                    <h3>Project 3 - Task Management App</h3>
-                    <p>A productivity tool to manage tasks efficiently with reminders.</p>
-                    <button onclick="showAlert('Task Management App')">View Project</button>
+                <div class="project">
+                    <div class="project-content">
+                        <h3>Task Management App</h3>
+                        <p>A productivity tool created to help users manage tasks efficiently with reminders and
+                            categories.</p>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Live
+                                Demo</a>
+                            <a href="#"
+                                style="color: var(--text-main); text-decoration: none; font-size: 0.8rem; align-self: center;">GitHub</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="project" onmouseover="highlightProject(this)" onmouseout="removeHighlight(this)">
-                    <h3>Project 4 - AI Chatbot</h3>
-                    <p>An intelligent chatbot powered by natural language processing.</p>
-                    <button onclick="showAlert('AI Chatbot')">View Project</button>
+                <div class="project">
+                    <div class="project-content">
+                        <h3>AI Chatbot</h3>
+                        <p>An intelligent chatbot powered by natural language processing to handle customer inquiries.
+                        </p>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Live
+                                Demo</a>
+                            <a href="#"
+                                style="color: var(--text-main); text-decoration: none; font-size: 0.8rem; align-self: center;">GitHub</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-        
+
         <section class="section" id="contact">
-            <h2>Contact</h2>
-            <p>Email: danielkipngetich10@gmail.com</p>
-            <p>LinkedIn: <a href="www.linkedin.com/in/daniel-kipngetich-57373021a">LinkedIn</a></p>
-            <p>GitHub: <a href="https://github.com/shazzar0137">GitHub</a></p>
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-info">
+                <p>Have a project in mind or just want to say hi? I'd love to hear from you!</p>
+                <div class="contact-links">
+                    <a href="mailto:danielkipngetich10@gmail.com">Email</a>
+                    <a href="https://www.linkedin.com/in/daniel-kipngetich-57373021a" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/shazzar0137" target="_blank">GitHub</a>
+                </div>
+            </div>
         </section>
     </div>
-    
+
     <footer>
-        &copy; 2025 danielkipngetich10. All rights reserved.
+        <p>&copy; 2026 Daniel Kipngetich. Built with passion.</p>
     </footer>
-    
-    <script src="script.js"></script>
+
+    <script src="index.js"></script>
 </body>
+
 </html>
